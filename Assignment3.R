@@ -1,6 +1,10 @@
+#KESHAV RAGHAVAN
+#KAR190002
+#ASSIGNMENT 3, CS 4375.002
 #install.packages("rpart")
+#install.packages("rpart.plot")
 library("rpart")
-
+library("rpart.plot")
 
 heart <- data.frame(read.csv("heart.csv"))
 
@@ -13,4 +17,4 @@ heart.refined <- clean.heart[clean.heart$Cholesterol > 40,]
 heart_classification_tree <- rpart(HeartDisease ~ FastingBS + Age + Sex,
                                    data = heart.refined,
                                    method = "class")
-heart_classification_tree
+rpart.plot(heart_classification_tree)
